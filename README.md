@@ -1,9 +1,9 @@
 # LangChain + Groq Chatbot (Streamlit)
 
-This project is a simple, real-time AI chatbot built with Streamlit for the UI, LangChain for prompt/model chaining, and Groq as the LLM provider.
+I built a simple, real-time AI chatbot using Streamlit for the UI, LangChain for prompt/model chaining, and Groq as the LLM provider.
 
-The app lets you:
-- Enter your Groq API key from the sidebar
+The app lets users:
+- Enter a Groq API key from the sidebar
 - Choose a model (`llama3-8b-8192` or `gemma2-9b-it`)
 - Ask questions in a chat interface
 - See streaming responses token-by-token
@@ -26,38 +26,38 @@ ChatPromptTemplate -> ChatGroq -> StrOutputParser
 
 This keeps the code modular and easy to extend (for example, adding memory, retrieval, tools, or a system prompt editor later).
 
-## How You Built This Project (Step-by-Step)
+## How I built this project (Step-by-Step)
 
-1. Created a Streamlit app shell
-- Set page config and title
-- Added a sidebar for API key and model selection
+1. I created a Streamlit app shell
+- I set the page config and title
+- I added a sidebar for API key and model selection
 
-2. Added session-based chat memory
-- Used `st.session_state.messages` to persist messages across Streamlit reruns
-- Added a `Clear Chat` button to reset conversation state
+2. I added session-based chat memory
+- I used `st.session_state.messages` to persist messages across Streamlit reruns
+- I added a `Clear Chat` button to reset conversation state
 
-3. Built an LLM chain function
-- Wrote `get_chain(api_key, model_name)` and decorated it with `@st.cache_resource`
-- Defined a prompt template with:
-	- system instruction (assistant behavior)
-	- user placeholder (`{question}`)
-- Initialized `ChatGroq`
-- Composed prompt + model + parser into one chain
+3. I built an LLM chain function
+- I wrote `get_chain(api_key, model_name)` and decorated it with `@st.cache_resource`
+- I defined a prompt template with:
+	- a system instruction (assistant behavior)
+	- a user placeholder (`{question}`)
+- I initialized `ChatGroq`
+- I composed prompt + model + parser into one chain
 
-4. Added chat display and user input
-- Rendered previous messages with `st.chat_message`
-- Captured user question with `st.chat_input`
-- Appended user text to session history
+4. I added chat display and user input
+- I rendered previous messages with `st.chat_message`
+- I captured the user question with `st.chat_input`
+- I appended the user text to session history
 
-5. Added streaming assistant output
-- Used `chain.stream({"question": question})`
-- Rendered incremental output with a cursor effect (`▌`)
-- Saved final assistant response to session history
+5. I added streaming assistant output
+- I used `chain.stream({"question": question})`
+- I rendered incremental output with a cursor effect (`▌`)
+- I saved the final assistant response to session history
 
-6. Added error handling and guidance
-- Wrapped model call in `try/except`
-- Displayed a warning if API key is missing
-- Added example questions for first-time users
+6. I added error handling and guidance
+- I wrapped the model call in `try/except`
+- I displayed a warning if the API key is missing
+- I added example questions for first-time users
 
 ## Current Folder Structure
 
@@ -193,7 +193,7 @@ Why this prompt works:
 
 ## Learning Outcomes from This Project
 
-By building this project, you practiced:
+By building this project, I practiced:
 - Streamlit chat UI patterns
 - LangChain chain composition
 - LLM streaming response rendering

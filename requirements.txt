@@ -1,0 +1,7 @@
+langchain
+langgraph
+langchain_groq
+streamlit
+python_dotenv
+langchain-core
+RunnableLambda
